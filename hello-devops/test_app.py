@@ -1,8 +1,8 @@
-# test_app .py
 import unittest
-# t
-class TestApp ( unittest . TestCase ):
-  def test_output ( self ):
-    self.assertTrue ( True )
-if __name__ == " __main__ ":
-  unittest.main()
+from app import app
+
+class TestApp(unittest.TestCase):
+    def test_home_route(self):  # This line needs proper indentation
+        tester = app.test_client()
+        response = tester.get('/')
+        self.assertEqual(response.status_code, 200)
